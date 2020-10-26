@@ -1,0 +1,22 @@
+version: "3.8"
+services: 
+    holyflush:
+        image: node:14
+        working_dir: /usr/src/app
+        command: npm run start
+        environment: 
+          HOLYPATH: ${HOLYPATH}
+        volumes:
+            - type: bind
+              source: .
+              target: /usr/src/app/
+            - type: bind
+              source: ${HOLYPATH}
+              target: /usr/src/app/structure/
+            - type: volume
+              source: nodemodules # name of the volume, see below
+              target: /usr/src/app/node_modules
+              volume:
+                nocopy: true
+volumes: 
+    nodemodules:

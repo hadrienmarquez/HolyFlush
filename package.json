@@ -1,0 +1,16 @@
+{
+    "name": "holyflush",
+    "version": "1.0.0",
+    "description": "A Node.JS script for renaming all directories and files in the directory structure in an incremental manner.",
+    "author": "Maman",
+    "main": "holyflush.js",
+    "type": "module",
+    "scripts": {
+        "dev": "npm install && bash",
+        "start": "node holyflush.js"
+    },
+    "dependencies": {
+        "express": "4.17.1",
+        "fs-extra": "9.0.1"
+    }
+}
