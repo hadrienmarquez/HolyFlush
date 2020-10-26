@@ -8,10 +8,8 @@ const __dirname = path.dirname(__filename);
 
 
 function HolyFlush(dir, total_struct = []) {
-
     // Getting structure subdirectory
     let cur_struct = fs.readdirSync(dir);
-    console.log(cur_struct);
 
     let dirIdx = 0;
     let fileIdx = 0; 
@@ -19,8 +17,6 @@ function HolyFlush(dir, total_struct = []) {
     cur_struct.forEach((elem) => {
         let oldPath = path.join(dir,elem);
 
-        // Check if folder
-        console.log(fs.statSync(oldPath).isDirectory());
         if(fs.statSync(oldPath).isDirectory()){
             // If yes, check subdirectory             
             total_struct = HolyFlush(oldPath, total_struct);
@@ -45,6 +41,8 @@ function HolyFlush(dir, total_struct = []) {
 
 };
  
-let tmp = HolyFlush(path.join(__dirname, "structure"));
-
-console.log(tmp);
+if(HolyFlush(path.join(__dirname, "structure"))) {
+    console.log("Folder structure has been entirely renamed.");
+} else {
+    console.log("An error as occurred.");
+}
