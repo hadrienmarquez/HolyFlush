@@ -7,7 +7,7 @@
     "type": "module",
     "scripts": {
         "dev": "npm install && bash",
-        "start": "node holyflush.js"
+        "start": "npm install && node holyflush.js"
     },
     "dependencies": {
         "express": "4.17.1",
